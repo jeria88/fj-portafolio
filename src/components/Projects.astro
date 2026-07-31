@@ -190,7 +190,7 @@
         </div>
         
         <!-- Contenedor scrollable -->
-        <div class="absolute top-10 inset-x-0 bottom-0 overflow-y-auto scrollbar-hide">
+        <div id="arqit-scroll-container" class="absolute top-10 inset-x-0 bottom-0 overflow-y-auto scrollbar-hide">
           <div class="flex flex-col">
             <img src="/img/projects/arqit-1.png" alt="ARQit Header" class="w-full block" loading="lazy" />
             <img src="/img/projects/arqit-2.png" alt="ARQit Sección 2" class="w-full block" loading="lazy" />
@@ -295,4 +295,30 @@
     scrollTrigger: { trigger: '.arqit-card', start: 'top bottom', end: 'bottom top', scrub: 1 },
     y: -30,
   });
+
+  // ARQit auto-scroll preview
+  const arqitScroll = document.getElementById('arqit-scroll-container');
+  if (arqitScroll) {
+    const autoScrollAnim = gsap.to(arqitScroll, {
+      scrollTop: 450, // Hace scroll hacia abajo
+      duration: 6,
+      ease: 'sine.inOut',
+      yoyo: true,
+      repeat: -1,
+      paused: true
+    });
+
+    ScrollTrigger.create({
+      trigger: '.arqit-card',
+      start: 'top center',
+      onEnter: () => autoScrollAnim.play(),
+      onLeave: () => autoScrollAnim.pause(),
+      onEnterBack: () => autoScrollAnim.play(),
+      onLeaveBack: () => autoScrollAnim.pause()
+    });
+
+    arqitScroll.addEventListener('mouseenter', () => autoScrollAnim.pause());
+    arqitScroll.addEventListener('mouseleave', () => autoScrollAnim.play());
+    arqitScroll.addEventListener('touchstart', () => autoScrollAnim.pause());
+  }
 </script>
