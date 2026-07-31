@@ -1,0 +1,181 @@
+---
+---
+<!-- =====================================================
+     HERO — Stars CSS bg + mask-image + GSAP entry
+     ===================================================== -->
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+
+  <!-- FONDO PRINCIPAL: Gradiente oscuro y estrellas CSS expandidas para rotación -->
+  <div class="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-950/20 via-slate-950 to-slate-950 pointer-events-none"></div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="stars-layer-1 absolute w-[200vw] h-[200vh] -left-[50vw] -top-[50vh] opacity-50"></div>
+    <div class="stars-layer-2 absolute w-[200vw] h-[200vh] -left-[50vw] -top-[50vh] opacity-40"></div>
+    <div class="stars-layer-3 absolute w-[200vw] h-[200vh] -left-[50vw] -top-[50vh] opacity-30"></div>
+  </div>
+
+  <!-- Contenedor Principal (Grid 2 columnas) -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh] pt-20 pb-10">
+
+    {/* COLUMNA IZQUIERDA: Imagen integrada */}
+    <div class="hero-el opacity-0 relative order-1 lg:order-1 w-full h-[40vh] sm:h-[50vh] lg:h-[70vh] min-h-[350px]">
+      
+      {/* CONTENEDOR DE LA IMAGEN con mask-image reducida a la mitad (ahora +50% y +30%) y posicionada */}
+      <div class="absolute image-mask-container" style="width: clamp(292px, 48.75vmin, 488px); height: clamp(292px, 48.75vmin, 488px); bottom: 20%; left: -20%;">
+        
+        {/* Capa de ajuste de color */}
+        <div class="absolute inset-0 bg-indigo-900/20 mix-blend-overlay z-10 pointer-events-none rounded-full"></div>
+        
+        <img id="hero-img-layer"
+          src="/img/franco/stars-clean.png" 
+          alt="Franco Jeria" 
+          class="w-full h-full object-cover object-center z-0"
+          loading="eager"
+        />
+        
+        {/* Overlay de gradiente interno */}
+        <div class="absolute inset-0 shadow-[inset_0_0_80px_40px_rgba(2,6,23,1)] pointer-events-none z-20"></div>
+      </div>
+    </div>
+
+    {/* COLUMNA DERECHA: Contenido de Texto */}
+    <div class="flex flex-col justify-center order-2 lg:order-2 text-center lg:text-right lg:items-end z-20">
+      
+      <!-- Badge superior -->
+      <div class="hero-el opacity-0 translate-y-6 mb-8 inline-flex items-center gap-2.5 px-4 py-2 mx-auto lg:mx-0 rounded-full border border-slate-600/40 bg-slate-900/50 backdrop-blur-sm self-center lg:self-end">
+        <span class="w-2 h-2 rounded-full bg-zen-matcha animate-pulse"></span>
+        <span class="font-mono text-xs text-slate-400 tracking-widest uppercase">Disponible para proyectos</span>
+      </div>
+
+      <h1 class="hero-el opacity-0 translate-y-8 text-5xl md:text-7xl font-bold text-white leading-none tracking-tight mb-4">
+        Franco Jeria
+      </h1>
+      
+      <p class="hero-el opacity-0 translate-y-8 text-2xl md:text-4xl font-light text-transparent bg-clip-text mb-6 drop-shadow-sm" style="background-image: linear-gradient(135deg, #22d3ee 0%, #86efac 100%); -webkit-background-clip: text;">
+        Fullstack & AI Engineer <span class="block text-xl md:text-2xl text-slate-400 mt-2 font-light">| Human-Centric Software</span>
+      </p>
+      
+      <p class="hero-el opacity-0 translate-y-8 text-lg sm:text-xl text-slate-400 mb-10 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+        Arquitectura robusta, agentes autónomos y productos digitales que entienden al usuario. Combino pensamiento sistémico y background clínico para construir ecosistemas de software escalables y experiencias impulsadas por IA que resuelven problemas reales.
+      </p>
+      
+      {/* Botones CTA */}
+      <div class="hero-el opacity-0 translate-y-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
+        <a href="#proyectos" class="inline-flex justify-center items-center px-8 py-3.5 text-sm font-semibold text-obsidian bg-white hover:bg-cyan-electric rounded transition-all duration-300">
+          Ver mis proyectos
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+        <a href="#contacto" class="inline-flex justify-center items-center px-8 py-3.5 text-sm font-medium text-slate-300 hover:text-white border border-slate-600 hover:border-cyan-electric rounded transition-all duration-300">
+          Contactar
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-el opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
+    <span class="text-xs text-slate-600 font-mono tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"></div>
+  </div>
+</section>
+
+<style>
+  /* MASK-IMAGE PARA BORRAR BORDES */
+  .image-mask-container {
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
+    mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
+  }
+
+  /* ESTRELLAS PROCEDURALES CSS */
+  .stars-layer-1 {
+    background-image: 
+      radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 50px 160px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 160px 120px, #ddd, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 4s infinite alternate;
+  }
+  .stars-layer-2 {
+    background-image: 
+      radial-gradient(1px 1px at 10px 10px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 150px 150px, #eee, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 60px 170px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 175px 40px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 190px 90px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: twinkle 5s infinite alternate-reverse;
+  }
+  .stars-layer-3 {
+    background-image: 
+      radial-gradient(2px 2px at 50px 50px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 250px 200px, #eee, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 100px 300px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2.5px 2.5px at 300px 100px, #ddd, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    animation: twinkle 6s infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ─── Entrada animada con stagger ────────────────────────────
+  gsap.to('.hero-el', {
+    y: 0,
+    opacity: 1,
+    duration: 1.1,
+    stagger: 0.15,
+    ease: 'power3.out',
+    delay: 0.1,
+  });
+
+  // Parallax imagen
+  const imgLayer = document.getElementById('hero-img-layer');
+  if (imgLayer) {
+    gsap.to(imgLayer, {
+      yPercent: 15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#inicio',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+  }
+
+  // Animación de rotación constante 360° para las estrellas
+  gsap.to('.stars-layer-1', { rotation: 360, duration: 160, repeat: -1, ease: 'none' });
+  gsap.to('.stars-layer-2', { rotation: -360, duration: 220, repeat: -1, ease: 'none' });
+  gsap.to('.stars-layer-3', { rotation: 360, duration: 300, repeat: -1, ease: 'none' });
+
+  // Efecto Parallax extra (estela/movimiento) con el scroll en las capas
+  gsap.to('.stars-layer-1', {
+    yPercent: 15,
+    ease: 'none',
+    scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 1 }
+  });
+  gsap.to('.stars-layer-2', {
+    yPercent: 25,
+    ease: 'none',
+    scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 1.5 }
+  });
+  gsap.to('.stars-layer-3', {
+    yPercent: 35,
+    ease: 'none',
+    scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 2 }
+  });
+</script>

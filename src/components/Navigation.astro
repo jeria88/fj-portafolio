@@ -1,0 +1,74 @@
+---
+---
+<!-- ======================================================
+     NAVIGATION — fixed top, transparent → frosted on scroll
+     ====================================================== -->
+<nav id="main-nav" class="fixed top-0 w-full z-[100] transition-all duration-500">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- Logo / Marca -->
+    <a href="#inicio" class="font-mono text-sm tracking-[0.2em] text-white/80 hover:text-cyan-electric transition-colors uppercase">
+      Franco<span class="text-cyan-electric">.</span>
+    </a>
+
+    <!-- Nav links desktop -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#proyectos"   class="nav-link text-sm text-slate-400 hover:text-white transition-colors">Proyectos</a>
+      <a href="#sobre-mi"    class="nav-link text-sm text-slate-400 hover:text-white transition-colors">Sobre Mí</a>
+      <a href="#habilidades" class="nav-link text-sm text-slate-400 hover:text-white transition-colors">Skills</a>
+      <a href="#contacto"
+         class="px-4 py-1.5 border border-cyan-electric text-cyan-electric text-sm font-mono rounded hover:bg-cyan-electric hover:text-obsidian transition-all duration-200">
+        Contactar →
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="nav-toggle" class="md:hidden text-slate-400 hover:text-white" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"  />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 backdrop-blur-md border-t border-slate-800 px-6 py-4 flex-col gap-4">
+    <a href="#proyectos"   class="text-slate-300 hover:text-white py-2 block">Proyectos</a>
+    <a href="#sobre-mi"    class="text-slate-300 hover:text-white py-2 block">Sobre Mí</a>
+    <a href="#habilidades" class="text-slate-300 hover:text-white py-2 block">Skills</a>
+    <a href="#contacto"    class="text-slate-300 hover:text-white py-2 block">Contactar</a>
+  </div>
+</nav>
+
+<script>
+  // Frosted glass on scroll
+  const nav = document.getElementById('main-nav')!;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(8,13,23,0.85)';
+      nav.style.backdropFilter = 'blur(16px)';
+      nav.style.borderBottom = 'none';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.borderBottom = 'none';
+    }
+  }, { passive: true });
+
+  // Mobile toggle
+  const toggle = document.getElementById('nav-toggle')!;
+  const menu   = document.getElementById('mobile-menu')!;
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+  });
+  // Close on link click
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+    })
+  );
+</script>

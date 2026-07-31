@@ -1,0 +1,155 @@
+---
+---
+<!-- ============================================================
+     ABOUT — Split screen: Zen parallax bg + Franco photo squircle
+     + Ebook credential + animated counters
+     ============================================================ -->
+<section id="sobre-mi" class="relative min-h-screen flex items-stretch overflow-hidden">
+
+  <!-- ── Mitad izquierda: imagen zen con parallax ── -->
+  <div class="hidden lg:block lg:w-1/2 relative overflow-hidden">
+    <!-- Foto del bosque como fondo parallax TODO: Reemplazar por una foto trabajando o de un entorno tech/oficina -->
+    <div id="about-bg"
+         class="absolute inset-0"
+         style="background: url('/img/franco/forest-clean.png') center center / cover no-repeat; transform: scale(1.15);">
+    </div>
+    <!-- Overlay oscuro gradiente lateral -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(to right, rgba(8,13,23,0) 60%, rgba(8,13,23,1) 100%), linear-gradient(to bottom, rgba(8,13,23,0.3) 0%, rgba(8,13,23,0.5) 100%);">
+    </div>
+
+  </div>
+
+  <!-- ── Mitad derecha: contenido ── -->
+  <div class="w-full lg:w-1/2 flex items-center py-28 px-8 md:px-16 bg-slate-950">
+
+    <div class="max-w-lg w-full">
+
+      <!-- Mobile: foto squircle compacta -->
+      <div class="lg:hidden flex justify-center mb-10">
+        <div class="relative w-40 h-40"
+             style="border-radius: 25%; overflow: hidden;
+                    box-shadow: 0 0 0 1px rgba(34,211,238,0.2), 0 0 40px -8px rgba(34,211,238,0.3);">
+          <div class="absolute inset-0 z-10 pointer-events-none"
+               style="-webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 50%, transparent 100%);
+                      mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 50%, transparent 100%);">
+          </div>
+          <img src="/img/franco/franco.jpeg" alt="Franco Jeria Castro"
+               class="w-full h-full object-cover object-top" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="about-text aos-init">
+        <span class="font-mono text-xs text-zen-matcha tracking-[0.3em] uppercase mb-4 block">— Mi Historia</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+          Ingeniería de Software<br/>
+          <span class="text-transparent bg-clip-text"
+                style="background-image: linear-gradient(135deg, #86efac, #22d3ee); -webkit-background-clip: text;">
+            con Product Mindset
+          </span>
+        </h2>
+
+        <div class="space-y-4 text-slate-400 leading-relaxed text-[15px] font-light mb-8">
+          <p>
+            Mi transición de la salud integrativa a la ingeniería de software me dio una ventaja competitiva única: la capacidad de entender sistemas complejos, ya sean biológicos, psicológicos o arquitecturas en la nube. Hoy aplico este análisis sistémico y profundo entendimiento del comportamiento para desarrollar SaaS robustos e integrar Inteligencia Artificial que realmente conecte con el usuario final.
+          </p>
+        </div>
+
+        <!-- Counters animados -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+          <div class="text-center">
+            <div class="stat-number" data-target="2">0</div>
+            <p class="text-slate-500 text-xs font-mono mt-1">SaaS en prod.</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-number" data-target="6">0</div>
+            <p class="text-slate-500 text-xs font-mono mt-1">Agentes IA orquestados</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-number" data-target="8">0</div>
+            <p class="text-slate-500 text-xs font-mono mt-1">Años decodificando sistemas (Clínica)</p>
+          </div>
+        </div>
+
+        <!-- Credencial: libro publicado -->
+        <div class="flex items-center gap-5 p-4 rounded-xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-sm hover:border-gold/40 transition-colors duration-300 mb-8">
+          <img src="/img/franco/epic-ebook.png"
+               alt="Endonáutica — Teoría del Autoconocimiento"
+               class="w-24 h-auto object-cover rounded-md shadow-md flex-shrink-0" loading="lazy" />
+          <div>
+            <p class="text-xs font-mono text-gold mb-0.5">Autor Publicado · 2023</p>
+            <p class="text-white font-semibold text-sm">"Endonáutica: Teoría del Autoconocimiento"</p>
+            <p class="text-slate-500 text-xs">Amazon.com · ISBN 9798385663965</p>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="flex flex-wrap gap-2">
+          <a href="/docs/ef_set_certificate.pdf" target="_blank" download class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-700 transition-colors text-xs font-mono cursor-pointer flex items-center gap-2">
+            C1 English (EF SET) <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+          <a href="/docs/certificado_sence.pdf" target="_blank" download class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-700 transition-colors text-xs font-mono cursor-pointer flex items-center gap-2">
+            Fullstack Python SENCE <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+          <a href="/docs/titulo.pdf" target="_blank" download class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-700 transition-colors text-xs font-mono cursor-pointer flex items-center gap-2">
+            Terapeuta en Salud Integrativa <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Parallax fondo bosque
+  const bg = document.getElementById('about-bg');
+  if (bg) {
+    gsap.to(bg, {
+      yPercent: 15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#sobre-mi',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+  }
+
+  // Texto reveal
+  gsap.to('.about-text', {
+    scrollTrigger: { trigger: '#sobre-mi', start: 'top 70%' },
+    y: 0, opacity: 1, duration: 1.1, ease: 'power3.out'
+  });
+
+  // Animated counters
+  const counters = document.querySelectorAll('.stat-number');
+  counters.forEach(el => {
+    const target = parseInt((el as HTMLElement).dataset.target || '0', 10);
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.fromTo(
+          el,
+          { innerText: 0 },
+          {
+            innerText: target,
+            duration: 1.8,
+            ease: 'power2.out',
+            snap: { innerText: 1 },
+            onUpdate() {
+              el.textContent = Math.round(parseFloat(el.textContent || '0')).toString();
+            }
+          }
+        );
+      }
+    });
+  });
+</script>
